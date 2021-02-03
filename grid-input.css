@@ -1,0 +1,87 @@
+.container_off{
+    width: 1000px;
+    margin: 30px auto;
+    background-color: #ddd;
+
+    display: grid;
+    grid-template-rows: repeat(2,150px);
+    /* max-content: pega a largura do maior elemento da row como ref */
+    /* min-content: pega a largura do MENOR elemento da row como ref */
+    /* min-content: da overflow> quebra as linhas */
+    grid-template-columns: max-content 1fr 1fr 1fr;
+
+
+
+    /* >>>>>>>Using Minmax<<<<<<< */
+    /* Aqui podemos colocar porcentagem para ficar responsivo */
+    /* Procentagem: em relação ao pai sempre */
+    /* Mas com porcentagem: pode diminuir até não dar pra mostrar o conteudo > ai coloca minwidth */
+    width: 90%;
+    grid-template-rows: repeat(1, minmax(50px,min-content));
+    /* AQUI: primeira: 50% até 200px e OUTRAS 3: 1fr */
+    /* IMPORTANTE: 1fr: fracao do que sobra/3 mas quando fica fino adota max-content */
+    grid-template-columns: minmax(200px, 50%) repeat(3,1fr);
+}
+
+.container {
+    /* USING AUTO-FILL e AUTO-FIT */
+    width: 1000px;
+    margin: 30px auto;
+    background-color: #ddd;
+
+    display: grid;
+    grid-template-rows: repeat(2, minmax(150px,min-content));
+    /* AQUI: Cria 10 colunas pois tem-se 1000/100 */
+    grid-template-columns: repeat(auto-fill,100px);
+    /* AQUI: Cria 10 colunas pois tem-se 1000/100  MAS A ULTIMA FICA LARGURA NULA*/
+    grid-template-columns: repeat(auto-fit,100px);
+
+
+
+    /* >>>>>>>>>>>---TOP-----AUTO-FIT & MINMXA---<<<<<<<< */
+    width: 90%;
+    grid-template-rows: repeat(1, minmax(50px,min-content));
+    grid-template-columns: repeat(auto-fit,minmax(190px,1fr));
+    /* AQUI: formatação das linhas extrincicas */
+    grid-auto-rows: 50px;
+}
+
+.item {
+    padding: 10px;
+    color: white;
+    font-family: sans-serif;
+    font-size: 20px;
+    background-color: #ddd;
+}
+
+.item--1 {
+    background-color: orangered;
+}
+
+.item--2 {
+    background-color: yellowgreen;
+}
+
+.item--3 {
+    background-color: blueviolet;
+}
+
+.item--4 {
+    background-color: palevioletred;
+}
+
+.item--5 {
+    background-color: royalblue;
+}
+
+.item--6 {
+    background-color: goldenrod;
+}
+
+.item--7 {
+    background-color: crimson;
+}
+
+.item--8 {
+    background-color: darkslategray;
+}
